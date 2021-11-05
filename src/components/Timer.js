@@ -11,19 +11,23 @@ function Timer({ minutes, setBreak, setSession }) {
       return number;
     }
   }
+  function displayTime() {
+    console.log("boo");
+  }
   function handlePlay(e) {}
   function handleReset(e) {
     setBreak(5);
     setSession(25);
-    seconds = prependZero(0);
+    pomodoroSeconds = prependZero(0);
   }
-  let seconds = prependZero(0);
+  let pomodoroMinutes = minutes;
+  let pomodoroSeconds = prependZero(0);
   return (
     <div className="pomodoro-session">
       <div className="pomodoro-session-label">
         <h2 id="timer-label">Session</h2>
         <span id="time-left">
-          {minutes}:{seconds}
+          {pomodoroMinutes}:{pomodoroSeconds}
         </span>
       </div>
       <div className="pomodoro-button">
