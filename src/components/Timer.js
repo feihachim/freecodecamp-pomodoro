@@ -3,39 +3,19 @@ import PlayIcon from "../assets/images/play_icon.png";
 import PauseIcon from "../assets/images/pause_icon.png";
 import DownloadIcon from "../assets/images/download_loop_recycle_repeat_icon.png";
 
-function Timer({ minutes, setBreak, setSession }) {
-  function prependZero(number) {
-    if (number < 10) {
-      return "0" + number;
-    } else {
-      return number;
-    }
-  }
-  function displayTime() {
-    console.log("boo");
-  }
-  function handlePlay(e) {}
-  function handleReset(e) {
-    setBreak(5);
-    setSession(25);
-    pomodoroSeconds = prependZero(0);
-  }
-  let pomodoroMinutes = minutes;
-  let pomodoroSeconds = prependZero(0);
+function Timer() {
   return (
     <div className="pomodoro-session">
       <div className="pomodoro-session-label">
         <h2 id="timer-label">Session</h2>
-        <span id="time-left">
-          {pomodoroMinutes}:{pomodoroSeconds}
-        </span>
+        <span id="time-left">25:00</span>
       </div>
       <div className="pomodoro-button">
-        <button id="start_stop" onClick={handlePlay}>
+        <button id="start_stop">
           <img src={PlayIcon} alt="play icon" />
           <img src={PauseIcon} alt="pause icon" />
         </button>
-        <button id="reset" onClick={handleReset}>
+        <button id="reset">
           <img src={DownloadIcon} alt="download icon" />
         </button>
       </div>
