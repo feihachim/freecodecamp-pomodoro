@@ -14,6 +14,14 @@ function App() {
     console.log(state.pomodoro.sessionLength);
     return state.pomodoro.sessionLength;
   });
+  const sessionTime = useSelector((state) => {
+    console.log(state.pomodoro.sessionTime);
+    return state.pomodoro.sessionTime;
+  });
+  const breakTime = useSelector((state) => {
+    console.log(state.pomodoro.breakTime);
+    return state.pomodoro.breakTime;
+  });
   const dispatch = useDispatch();
   function incrementBreak(e) {
     dispatch(allActions.breakAction.incrementBreak());
@@ -26,6 +34,14 @@ function App() {
   }
   function decrementSession(e) {
     dispatch(allActions.sessionAction.decrementSession());
+  }
+  function playTimer(e) {
+    dispatch(allActions.timerAction.playTimer());
+    console.log("playtime");
+  }
+  function resetTimer(e) {
+    dispatch(allActions.timerAction.resetTimer());
+    console.log("resetTime");
   }
   return (
     <div className="App">
@@ -43,7 +59,12 @@ function App() {
             decrement={decrementSession}
           />
         </div>
-        <Timer />
+        <Timer
+          sessionTime={sessionTime}
+          breakTime={breakTime}
+          playTimer={playTimer}
+          resetTimer={resetTimer}
+        />
       </div>
     </div>
   );
